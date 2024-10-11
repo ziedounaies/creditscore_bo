@@ -1,0 +1,5 @@
+export enum AcountType {
+  PHYSICAL_PERSON = 'PHYSICAL_PERSON',
+
+  CORPORATION = 'CORPORATION',
+}

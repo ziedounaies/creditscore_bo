@@ -1,0 +1,92 @@
+{
+  "annotations": {
+    "changelogDate": "20240420101808"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "payment",
+  "fields": [
+    {
+      "fieldName": "checkNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "checkIssuer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "checkDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "recipient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfSignature",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "PaymentType",
+      "fieldValues": "CHECK,CASH,DEBIT"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expectedPaymentDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "datePaymentMade",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "PENDING,IN_PROGRESS,DONE,REJECTED"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Payment",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "memberUser",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "memberUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "product",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "invoice",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

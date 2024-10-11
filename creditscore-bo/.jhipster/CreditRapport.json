@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20240420102208"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "credit_rapport",
+  "fields": [
+    {
+      "fieldName": "creditScore",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountAge",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditLimit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inquiriesAndRequests",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "CreditRapport",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "memberUser",
+      "otherEntityRelationshipName": "creditRapport",
+      "relationshipName": "memberUser",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "creditRapport",
+      "relationshipName": "invoice",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,61 @@
+{
+  "annotations": {
+    "changelogDate": "20240420101908"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "invoice",
+  "fields": [
+    {
+      "fieldName": "invoiceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "PENDING,IN_PROGRESS,DONE,REJECTED"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Invoice",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "memberUser",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "memberUser",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "product",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "payment",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "payment",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "creditRapport",
+      "relationshipName": "creditRapport",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

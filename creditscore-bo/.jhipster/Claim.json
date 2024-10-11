@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240420101608"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "claim",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "PENDING,IN_PROGRESS,DONE,REJECTED"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Claim",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "memberUser",
+      "otherEntityRelationshipName": "claim",
+      "relationshipName": "memberUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

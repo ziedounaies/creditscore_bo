@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity MemberUser.
+    -->
+    <changeSet id="20240420101308-1" author="jhipster">
+        <createTable tableName="member_user">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="business_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="birth_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="acount_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="identifier_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="identifier_value" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="employers_reported" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="income" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="expenses" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="gross_profit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="net_profit_margin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="debts_obligations" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="role" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_at" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="member_user" columnName="birth_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="member_user" columnName="created_at" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20240420101308-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/member_user.csv"
+                  separator=";"
+                  tableName="member_user"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="user_name" type="string"/>
+            <column name="first_name" type="string"/>
+            <column name="last_name" type="string"/>
+            <column name="business_name" type="string"/>
+            <column name="birth_date" type="date"/>
+            <column name="acount_type" type="string"/>
+            <column name="identifier_type" type="string"/>
+            <column name="identifier_value" type="string"/>
+            <column name="employers_reported" type="string"/>
+            <column name="income" type="string"/>
+            <column name="expenses" type="string"/>
+            <column name="gross_profit" type="string"/>
+            <column name="net_profit_margin" type="string"/>
+            <column name="debts_obligations" type="string"/>
+            <column name="enabled" type="boolean"/>
+            <column name="role" type="string"/>
+            <column name="created_at" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

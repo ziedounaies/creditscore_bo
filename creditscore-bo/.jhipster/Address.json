@@ -1,0 +1,54 @@
+{
+  "annotations": {
+    "changelogDate": "20240420101408"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "address",
+  "fields": [
+    {
+      "fieldName": "street",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "zipCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Address",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "memberUser",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "memberUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "banks",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "banks",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "agencies",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "agencies",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,137 @@
+{
+  "annotations": {
+    "changelogDate": "20240420101308"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "member_user",
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "businessName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "acountType",
+      "fieldType": "AcountType",
+      "fieldValues": "PHYSICAL_PERSON,CORPORATION"
+    },
+    {
+      "fieldName": "identifierType",
+      "fieldType": "IdentifierType",
+      "fieldValues": "CIN,PASSPORT,TAX_REGISTRATION"
+    },
+    {
+      "fieldName": "identifierValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "employersReported",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "income",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expenses",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "grossProfit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "netProfitMargin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "debtsObligations",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "enabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "Role",
+      "fieldValues": "CUSTOMER,COMMERCANT,ADMIN"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "MemberUser",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "creditRapport",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "creditRapport",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "invoice",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "address",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "payment",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "payment",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "claim",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "claim",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "notification",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "contact",
+      "otherEntityRelationshipName": "memberUser",
+      "relationshipName": "contact",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20240420101508"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "contact",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TypeContact",
+      "fieldValues": "PHONE_NUMBER,EMAIL,FAX"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Contact",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "memberUser",
+      "otherEntityRelationshipName": "contact",
+      "relationshipName": "memberUser",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "banks",
+      "otherEntityRelationshipName": "contact",
+      "relationshipName": "banks",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "agencies",
+      "otherEntityRelationshipName": "contact",
+      "relationshipName": "agencies",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

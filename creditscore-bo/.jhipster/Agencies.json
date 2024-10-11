@@ -1,0 +1,54 @@
+{
+  "annotations": {
+    "changelogDate": "20240420102008"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "agencies",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "datefounded",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "enabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Agencies",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "banks",
+      "otherEntityRelationshipName": "agencies",
+      "relationshipName": "banks",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "contact",
+      "otherEntityRelationshipName": "agencies",
+      "relationshipName": "contact",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "agencies",
+      "relationshipName": "address",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

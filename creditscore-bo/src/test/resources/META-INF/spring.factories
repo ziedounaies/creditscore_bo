@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = com.reactit.credit.\
+    score.config.SqlTestContainersSpringContextCustomizerFactory,com.reactit.\
+    credit.score.config.RedisTestContainersSpringContextCustomizerFactory

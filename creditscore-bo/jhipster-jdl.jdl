@@ -1,0 +1,167 @@
+entity MemberUser {
+      userName String
+	  firstName String
+      lastName String
+      businessName String
+      birthDate Instant
+      acountType AcountType
+      identifierType IdentifierType
+      identifierValue String
+      employersReported String   
+      income String
+      expenses String
+      grossProfit String
+      netProfitMargin String
+      debtsObligations String
+      enabled Boolean
+      Role Role
+      createdAt Instant
+}
+
+
+entity Address {
+  street String
+  city String
+  zipCode String
+  createdAt Instant
+}
+
+entity Contact {
+     type TypeContact
+     value String 
+     createdAt Instant
+}
+
+
+entity Claim {
+    status StatusType
+    title String
+    message String
+    createdAt Instant
+}
+
+entity Product {
+    name String
+    serialNumber String    
+    guarantee String
+    price String
+    createdAt Instant
+}
+
+entity Payment {
+	checkNumber String    
+	checkIssuer String
+    accountNumber String 
+    checkDate Instant
+    recipient String
+    dateOfSignature Instant
+    paymentMethod PaymentType 
+    amount String
+    expectedPaymentDate Instant
+    datePaymentMade Instant
+    status StatusType
+    currency String 
+    createdAt Instant
+}
+
+entity Invoice {
+    invoiceNumber String
+    amount String
+    status StatusType
+    createdAt Instant
+
+}
+
+entity Agencies {
+      name String
+      datefounded String
+      enabled Boolean
+      createdAt Instant
+}
+
+entity Banks {
+    name String
+    foundedDate Instant 
+    branches String
+    enabled Boolean
+    createdAt Instant
+}
+
+entity CreditRapport {
+    creditScore String
+    accountAge String
+    creditLimit String
+    inquiriesAndRequests String
+    createdAt Instant
+} 
+
+entity Notification {
+    title String
+    message String
+    readed  Boolean
+    createdAt Instant
+}
+
+
+enum Role {
+  	CUSTOMER, COMMERCANT, ADMIN 
+}
+
+enum PaymentType {
+  	CHECK, CASH, DEBIT 
+}
+
+enum TypeContact {
+  	PHONE_NUMBER, EMAIL, FAX 
+}
+
+enum StatusType {
+  	PENDING, IN_PROGRESS, DONE, REJECTED
+}
+
+enum IdentifierType {
+  	CIN, PASSPORT, TAX_REGISTRATION
+}
+
+enum AcountType {
+  	PHYSICAL_PERSON, CORPORATION
+}
+
+
+
+
+relationship OneToOne {
+	CreditRapport{memberUser} to MemberUser{creditRapport}
+    Invoice{memberUser} to MemberUser{invoice}
+}
+
+relationship OneToMany {
+    CreditRapport to Invoice{creditRapport}
+    Invoice{product} to Product{invoice}
+    Invoice{payment} to Payment{invoice}
+}
+
+relationship ManyToOne {
+	Address{memberUser} to MemberUser{address}
+    Payment{memberUser} to MemberUser{payment}
+    Claim{memberUser} to MemberUser{claim}
+    Notification{memberUser} to MemberUser{notification}
+    Contact{memberUser} to MemberUser{contact}
+    Contact{banks} to Banks{contact}
+    Contact{agencies} to Agencies{contact}
+    Address{memberUser} to MemberUser{address}
+    Address{banks} to Banks{address}
+    Address{agencies} to Agencies{address}
+    Agencies{banks} to Banks{agencies}
+}
+
+relationship ManyToMany {
+    Payment{product} to Product{payment} 
+}
+
+
+filter *
+paginate * with pagination
+service * with serviceClass
+service * with serviceImpl
+dto * with mapstruct
