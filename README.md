@@ -74,7 +74,6 @@ Before you begin, ensure you have met the following requirements:
 ![Download](./screenshots/calculCreditScore.png)
 ![Download](./screenshots/clients.png)
 ![Download](./screenshots/creditProcess.png)
-![Download](./screenshots/creditScore (2).png)
 ![Download](./screenshots/form_client.png)
 ![Download](./screenshots/list_clientpng.png)
 ![Download](./screenshots/login.png)
